@@ -19,6 +19,9 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".set_password"/>
+        <activity android:name=".input_password"/>
+
         <activity android:name=".main_diaryPage" />
     </application>
 

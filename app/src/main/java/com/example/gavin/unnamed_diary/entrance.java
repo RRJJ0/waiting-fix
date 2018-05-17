@@ -1,6 +1,5 @@
 package com.example.gavin.unnamed_diary;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -9,28 +8,36 @@ import android.view.MotionEvent;
 
 public class entrance extends AppCompatActivity {
 
-    Intent intent, it1;
-    int sum=0;
+    Intent intent = new Intent();
+    private SharedPreferences rememberInformation;
+    // storing the information about if first time or not
+    int FirstOrNot;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.entrance_page);
-        it1=new Intent(entrance.this,set_password.class);
-        intent = new Intent(entrance.this,input_password.class);
+
+        rememberInformation = getSharedPreferences("information",MODE_PRIVATE);
+        FirstOrNot = rememberInformation.getInt("DETERMINE",0);
+
 
     }
 
     public boolean onTouchEvent(MotionEvent event) {
 
-        if(sum==0){
-           sum++;
-        startActivity(it1);
+       if (FirstOrNot == 0){
+            intent.setClass(entrance.this,set_password.class);;
+            rememberInformation.edit()
+                    .putInt("DETERMINE",FirstOrNot+1)
+                    .apply();
+       } else{
+            //while FirstOrNot > 0
+            intent.setClass(entrance.this,input_password.class);
         }
-       else {
 
-            startActivity(intent);
-        }
+        startActivity(intent);
 
         return true;
 
