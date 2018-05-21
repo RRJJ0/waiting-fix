@@ -125,6 +125,7 @@ public class input_password extends AppCompatActivity implements View.OnClickLis
             case R.id.delete:
                 st="";
                 text.setText(st);
+
                 break;
 
         }
@@ -132,11 +133,13 @@ public class input_password extends AppCompatActivity implements View.OnClickLis
 
     private void whenLengthEqual4(){
         nowInsert = text.getText().toString();
-        if (nowInsert == passwordGotFromSetting){
+        if (nowInsert.equals(passwordGotFromSetting)){
             //Toast.makeText(this,"YESSSS",Toast.LENGTH_SHORT).show();
             intent.setClass(input_password.this,main_diaryPage.class);
             startActivity(intent);
         }else{
+            st="";
+            text.setText(st);
             Toast.makeText(this,"Password wrong!",Toast.LENGTH_SHORT).show();
         }
     }

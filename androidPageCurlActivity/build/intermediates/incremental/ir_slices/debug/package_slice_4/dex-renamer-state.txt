@@ -1,0 +1,4 @@
+#Mon May 21 14:34:42 CST 2018
+base.0=C\:\\Users\\HERO\\Documents\\GitHub\\waiting-fix\\androidPageCurlActivity\\build\\intermediates\\transforms\\dexMerger\\debug\\4
+path.0=classes.dex
+renamed.0=classes.dex

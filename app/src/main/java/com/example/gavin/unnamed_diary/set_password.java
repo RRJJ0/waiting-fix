@@ -120,6 +120,7 @@ public class set_password extends AppCompatActivity implements View.OnClickListe
             case R.id.delete:
                 str="";
                 text.setText(str);
+
                 break;
 
         }

@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\CMRDB_BASE\\Documents\\GitHub\\waiting-fix\\androidPageCurlActivity\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+            "outputFile": "C:\\Users\\HERO\\Documents\\GitHub\\waiting-fix\\androidPageCurlActivity\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\CMRDB_BASE\\Documents\\GitHub\\waiting-fix\\androidPageCurlActivity\\src\\main\\res\\values\\strings.xml",
+                    "source": "C:\\Users\\HERO\\Documents\\GitHub\\waiting-fix\\androidPageCurlActivity\\src\\main\\res\\values\\strings.xml",
                     "from": {
                         "startLines": "3,6,2,4,5",
                         "startColumns": "4,4,4,4,4",
