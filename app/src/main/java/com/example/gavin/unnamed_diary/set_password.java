@@ -3,204 +3,193 @@ package com.example.gavin.unnamed_diary;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.IntentSender;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.PersistableBundle;
-import android.support.annotation.Nullable;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-public class set_password extends AppCompatActivity {
-    Intent it=new Intent(this,entrance.class);
+public class set_password extends AppCompatActivity implements View.OnClickListener{
 
-    String str="",save_str;
-    ImageButton b1,b2,b3,b4,b5,b6,b7,b8,b9,b0,B_del;
+    String str="";
+    ImageButton bt1,bt2,bt3,bt4,bt5,bt6,bt7,bt8,bt9,bt0,Bt_del;
     TextView text;
-    SharedPreferences spf=getSharedPreferences("str", Context.MODE_PRIVATE| MODE_WORLD_READABLE);
+
+    private SharedPreferences rememberPassword;
+    // literally storing the password
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.set_password);
 
-        text=(TextView)findViewById(R.id.editText);
-        b1=(ImageButton)findViewById(R.id.one);
-        b2=(ImageButton)findViewById(R.id.two);
-        b3=(ImageButton)findViewById(R.id.three);
-        b4=(ImageButton)findViewById(R.id.four);
-        b5=(ImageButton)findViewById(R.id.five);
-        b6=(ImageButton)findViewById(R.id.six);
-        b7=(ImageButton)findViewById(R.id.seven);
-        b8=(ImageButton)findViewById(R.id.eight);
-        b9=(ImageButton)findViewById(R.id.nine);
-        b0=(ImageButton)findViewById(R.id.zero);
-        B_del=(ImageButton)findViewById(R.id.delete);
+        callingObjects();
+        settingListners();
 
-        b1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                str=str+"1";
-                text.setText(str);
-                if(changepage(str)){
-                    //換頁
-                    setpassword();
-                }
-            }
-        });
-
-        b2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                str=str+"2";
-                text.setText(str);
-                if(changepage(str)){
-                    //換頁
-                    setpassword();
-                }
-            }
-        });
-
-        b3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                str=str+"3";
-                text.setText(str);
-                if(changepage(str)){
-                    //換頁
-                    setpassword();
-                }
-            }
-        });
-
-        b4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                str=str+"4";
-                text.setText(str);
-                if(changepage(str)){
-                    //換頁
-                    setpassword();
-                }
-            }
-        });
-
-        b5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                str=str+"5";
-                text.setText(str);
-                if(changepage(str)){
-                    //換頁
-                    setpassword();
-                }
-            }
-        });
-
-        b6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                str=str+"6";
-                text.setText(str);
-                if(changepage(str)){
-                    //換頁
-                    setpassword();
-                }
-            }
-        });
-
-        b7.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                str=str+"7";
-                text.setText(str);
-                if(changepage(str)){
-                    //換頁
-                    setpassword();
-                }
-            }
-        });
-
-        b8.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                str=str+"8";
-                text.setText(str);
-                if(changepage(str)){
-                    //換頁
-                    setpassword();
-                }
-            }
-        });
-
-        b9.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                str=str+"9";
-                text.setText(str);
-                if(changepage(str)){
-                    //換頁
-                    setpassword();
-                }
-            }
-        });
-
-        b0.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                str=str+"0";
-                text.setText(str);
-                if(changepage(str)){
-                    setpassword();
-                }
-            }
-        });
-
-        B_del.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                str=str.substring(0,str.length());
-                text.setText(str);
-
-            }
-        });
     }
 
-    public boolean changepage(String s){
-        if(s.length()==4){
-            spf.edit().putString("save_str","str").commit();
+    @Override
+    public void onClick(View view) {
 
+        switch (view.getId()){
 
-            return true;
-        }
-        else{
-            return false;
+            case R.id.one:
+                str = str+"1";
+                text.setText(str);
+                if(changePage(str)){
+                    setPassword();
+                }
+                break;
+
+            case R.id.two:
+                str = str+"2";
+                text.setText(str);
+                if(changePage(str)){
+                    setPassword();
+                }
+                break;
+
+            case R.id.three:
+                str = str+"3";
+                text.setText(str);
+                if(changePage(str)){
+                    setPassword();
+                }
+                break;
+
+            case R.id.four:
+                str = str+"4";
+                text.setText(str);
+                if(changePage(str)){
+                    setPassword();
+                }
+                break;
+
+            case R.id.five:
+                str = str+"5";
+                text.setText(str);
+                if(changePage(str)){
+                    setPassword();
+                }
+                break;
+
+            case R.id.six:
+                str = str+"6";
+                text.setText(str);
+                if(changePage(str)){
+                    setPassword();
+                }
+                break;
+
+            case R.id.seven:
+                str = str+"7";
+                text.setText(str);
+                if(changePage(str)){
+                    setPassword();
+                }
+                break;
+
+            case R.id.eight:
+                str = str+"8";
+                text.setText(str);
+                if(changePage(str)){
+                    setPassword();
+                }
+                break;
+
+            case R.id.nine:
+                str = str+"9";
+                text.setText(str);
+                if(changePage(str)){
+                    setPassword();
+                }
+                break;
+
+            case R.id.zero:
+                str = str+"0";
+                text.setText(str);
+                if(changePage(str)){
+                    setPassword();
+                }
+                break;
+
+            case R.id.delete:
+                str="";
+                text.setText(str);
+                break;
+
         }
     }
 
-    void setpassword(){
+    public boolean changePage(String s){
+        return s.length() == 4;
+    }
+
+    private void setPassword(){
         AlertDialog.Builder ab=new AlertDialog.Builder(set_password.this)
                 .setTitle("注意").setMessage("確定要設為密碼嗎")
                 .setPositiveButton("確定", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 
-                        startActivity(it);
+                        rememberPassword = getSharedPreferences("PASSWORD", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = rememberPassword.edit();
+                        editor.putString("Passwords",text.getText().toString());
+                        editor.apply();
+
+                        Intent toMain = new Intent();
+                        toMain.setClass(set_password.this,main_diaryPage.class);
+                        startActivity(toMain);
+
                     }
                 })
                 .setNegativeButton("重設", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         str="";
-                        text.setText("請設定密碼");
                     }
                 });
         ab.show();
     }
+
+
+    private void callingObjects(){
+
+        text = findViewById(R.id.editText);
+        bt1 = findViewById(R.id.one);
+        bt2 = findViewById(R.id.two);
+        bt3 = findViewById(R.id.three);
+        bt4 = findViewById(R.id.four);
+        bt5 = findViewById(R.id.five);
+        bt6 = findViewById(R.id.six);
+        bt7 = findViewById(R.id.seven);
+        bt8 = findViewById(R.id.eight);
+        bt9 = findViewById(R.id.nine);
+        bt0 = findViewById(R.id.zero);
+        Bt_del = findViewById(R.id.delete);
+
+    }
+
+    private void settingListners(){
+
+        bt1.setOnClickListener(this);
+        bt2.setOnClickListener(this);
+        bt3.setOnClickListener(this);
+        bt4.setOnClickListener(this);
+        bt5.setOnClickListener(this);
+        bt6.setOnClickListener(this);
+        bt7.setOnClickListener(this);
+        bt8.setOnClickListener(this);
+        bt9.setOnClickListener(this);
+        bt0.setOnClickListener(this);
+        Bt_del.setOnClickListener(this);
+
+    }
+
 
 
 }
